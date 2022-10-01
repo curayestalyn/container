@@ -1,0 +1,27 @@
+version: '3.8'
+services:
+  portainer:
+    image: traefik:v2.8
+    container_name: traefik
+    security_opt:
+      - no-new-privileges:true
+    restart: always
+    volumes:  
+      - type: bind
+        source: /etc/traefik
+        target: /etc/traefik
+        read_only: true
+      - type: bind
+        source: /var/run/docker.sock
+        target: /var/run/docker.sock
+        read_only: true
+    ports:
+      - 80:80
+      - 443:443
+      - 8080:8080
+    networks:
+      - proxy
+    
+networks:
+  proxy:
+    name: proxy
