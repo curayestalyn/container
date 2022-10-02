@@ -16,8 +16,8 @@ services:
         target: /var/run/docker.sock
         read_only: true
       - type: volume
-        source: traefik-ssl-certs
-        target: /ssl-certs
+        source: letsencrypt
+        target: /letsencrypt
     ports:
       - 80:80
       - 443:443
@@ -30,8 +30,8 @@ networks:
     name: proxy
 
 volumes:
-  traefik-ssl-certs:
-    name: traefik-ssl-certs
+  letsencrypt:
+    name: letsencrypt
     driver: local
     driver_opts:
       type: none

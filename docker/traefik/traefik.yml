@@ -17,11 +17,11 @@ entryPoints:
   web:
     address: :80
     # (Optional) Redirect to HTTPS
-    http:
-      redirections:
-        entryPoint:
-          to: websecure
-          scheme: https
+    # http:
+    #   redirections:
+    #     entryPoint:
+    #       to: websecure
+    #       scheme: https
 
   websecure:
     address: :443
@@ -34,7 +34,7 @@ certificatesResolvers:
   staging:
     acme:
       email: user@example.com
-      storage: /etc/traefik/certs/acme.json
+      storage: /letsencrypt/acme.json
       caServer: "https://acme-staging-v02.api.letsencrypt.org/directory"
       httpChallenge:
         entryPoint: web
@@ -42,7 +42,7 @@ certificatesResolvers:
   production:
     acme:
       email: user@example.com
-      storage: /etc/traefik/certs/acme.json
+      storage: /letsencrypt/acme.json
       caServer: "https://acme-v02.api.letsencrypt.org/directory"
       httpChallenge:
         entryPoint: web

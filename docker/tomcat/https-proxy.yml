@@ -1,0 +1,32 @@
+version: '3.8'
+services:
+  tomcat:
+    image: tomcat:9.0.67-jre8-temurin-jammy
+    container_name: tomcat
+    volumes:
+      - webapps:/usr/local/tomcat/webapps
+      - conf:/usr/local/tomcat/conf
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.tomcat.rule=Host(`web.localhost`)"
+      - "traefik.http.routers.tomcat.entrypoints=web"
+      - "traefik.http.services.tomcat.loadbalancer.server.port=8080"
+      - "traefik.http.services.tomcat.loadbalancer.sticky=true"
+      - "traefik.http.services.tomcat.loadbalancer.sticky.cookie.name=StickyCookie"
+      # - "traefik.http.routers.portainer.tls=true"
+      # - "traefik.http.routers.portainer.tls.certresolver=production"      
+    networks:
+      - proxy
+
+volumes:
+  webapps:
+    name: webapps
+    external: false
+  conf:
+    name: conf
+    external: false    
+      
+networks:
+  proxy:
+    name: proxy
+    external: true
