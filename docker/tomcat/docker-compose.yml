@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  tomcat:
+    image: tomcat9:non_jdk172
+    container_name: tomcat5
+    ports:
+      - 8081:8080
+    volumes:
+      - webapps:/opt/tomcat/webapps
+      - conf:/opt/tomcat/conf
+      - logs:/opt/tomcat/logs
+    networks:
+      - net
+
+volumes:
+  webapps:
+    name: webapps
+    external: false
+  conf:
+    name: conf
+    external: false    
+  logs:
+    name: logs
+    external: false  
+      
+networks:
+  net:
+    name: net
+    external: false
