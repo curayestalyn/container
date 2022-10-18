@@ -1,7 +1,7 @@
 <img src="media\readme\LOGO_3.png" alt="contenedores" width="60" height="60" align="right">
 
 # Contenedores primeros pasos
-## Ïndice 
+## ndice 
 - [Introducción](#intro)
 - [Docker](#docker)
 
