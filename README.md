@@ -18,14 +18,14 @@ Docker es una herramienta que nos permite de alguna manera utilizar aplicativos 
 
 ```
 // Iniciar contenedor:
-  docker run <-it | d> <imagen> 
-  it -> contenedor se ejecuta y se accede a la consola al momento de realizar la ejecución
-  d -> contenedor se ejecuta en segundo plano
-  image -> un listado de <a hres="https://hub.docker.com/search"> images</a> 
+      docker run <-it | d> <imagen> 
+        it -> contenedor se ejecuta y se accede a la consola al momento de realizar la ejecución
+        d -> contenedor se ejecuta en segundo plano
+        image -> nombre de la imagen obtenido de docker hub
 // Detener contenedor
-  docker stop <nombre | id>   
+      docker stop <nombre | id>   
 // Borrar contenedor
-  docker rm <nombre | id>
+      docker rm <nombre | id>
 // Borrar imagen 
-  docker rmi <nombre | id>
+      docker rmi <nombre | id>
 ```
